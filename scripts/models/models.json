@@ -1,0 +1,509 @@
+[
+ {
+  "src": "scripts/models/raw/nvidia_geforce_rtx_3090_-_gpu.glb",
+  "out": "public/models/gpus/rtx-founders.glb",
+  "axes": [
+   [
+    0,
+    0,
+    -1
+   ],
+   [
+    1,
+    0,
+    0
+   ],
+   [
+    0,
+    -1,
+    0
+   ]
+  ],
+  "fit": [
+   "z",
+   0.313
+  ],
+  "tex": 2048
+ },
+ {
+  "src": "scripts/models/raw/rx_480_gpu.glb",
+  "out": "public/models/gpus/radeon-dual-fan.glb",
+  "axes": [
+   [
+    1,
+    0,
+    0
+   ],
+   [
+    0,
+    -1,
+    0
+   ],
+   [
+    0,
+    0,
+    -1
+   ]
+  ],
+  "fit": [
+   "z",
+   0.27
+  ],
+  "tex": 2048
+ },
+ {
+  "src": "scripts/models/raw/motherboard_am4.glb",
+  "out": "public/models/motherboards/am4-board.glb",
+  "axes": [
+   [
+    0,
+    0,
+    1
+   ],
+   [
+    -1,
+    0,
+    0
+   ],
+   [
+    0,
+    -1,
+    0
+   ]
+  ],
+  "fit": [
+   "y",
+   0.26
+  ],
+  "tex": 2048
+ },
+ {
+  "src": "scripts/models/raw/cpu_ryzen_5_3600.glb",
+  "out": "public/models/cpus/ryzen-5.glb",
+  "axes": [
+   [
+    0,
+    0,
+    1
+   ],
+   [
+    -1,
+    0,
+    0
+   ],
+   [
+    0,
+    -1,
+    0
+   ]
+  ],
+  "fit": [
+   "y",
+   0.04
+  ],
+  "tex": 1024
+ },
+ {
+  "src": "scripts/models/raw/am4_cpu__free.glb",
+  "out": "public/models/cpus/ryzen-9.glb",
+  "axes": [
+   [
+    0,
+    0,
+    1
+   ],
+   [
+    0,
+    1,
+    0
+   ],
+   [
+    -1,
+    0,
+    0
+   ]
+  ],
+  "fit": [
+   "y",
+   0.04
+  ],
+  "tex": 1024
+ },
+ {
+  "src": "scripts/models/raw/intel_cpu.glb",
+  "out": "public/models/cpus/intel-core.glb",
+  "axes": [
+   [
+    0,
+    0,
+    1
+   ],
+   [
+    -1,
+    0,
+    0
+   ],
+   [
+    0,
+    -1,
+    0
+   ]
+  ],
+  "fit": [
+   "y",
+   0.0375
+  ],
+  "tex": 1024
+ },
+ {
+  "src": "scripts/models/raw/free_intel_cpu.glb",
+  "out": "public/models/cpus/intel-core-ultra.glb",
+  "axes": [
+   [
+    0,
+    0,
+    1
+   ],
+   [
+    -1,
+    0,
+    0
+   ],
+   [
+    0,
+    -1,
+    0
+   ]
+  ],
+  "fit": [
+   "y",
+   0.0375
+  ],
+  "tex": 1024
+ },
+ {
+  "src": "scripts/models/raw/cooler_master_cpu_cooler.glb",
+  "out": "public/models/coolers/hyper-212.glb",
+  "axes": [
+   [
+    0,
+    -1,
+    0
+   ],
+   [
+    -1,
+    0,
+    0
+   ],
+   [
+    0,
+    0,
+    -1
+   ]
+  ],
+  "fit": [
+   "x",
+   0.159
+  ],
+  "tex": 1024
+ },
+ {
+  "src": "scripts/models/raw/cpu_cooler.glb",
+  "out": "public/models/coolers/black-tower.glb",
+  "axes": [
+   [
+    0,
+    0,
+    -1
+   ],
+   [
+    -1,
+    0,
+    0
+   ],
+   [
+    0,
+    1,
+    0
+   ]
+  ],
+  "fit": [
+   "x",
+   0.157
+  ],
+  "tex": 1024
+ },
+ {
+  "src": "scripts/models/raw/kingston_hyperx_fury_black_ram_module.glb",
+  "out": "public/models/ram/hyperx-fury.glb",
+  "axes": [
+   [
+    0,
+    0,
+    1
+   ],
+   [
+    -1,
+    0,
+    0
+   ],
+   [
+    0,
+    -1,
+    0
+   ]
+  ],
+  "fit": [
+   "y",
+   0.133
+  ],
+  "tex": 1024
+ },
+ {
+  "src": "scripts/models/raw/crucial_8_gb_ddr4_2133_ram.glb",
+  "out": "public/models/ram/crucial-ddr4.glb",
+  "axes": [
+   [
+    0,
+    1,
+    0
+   ],
+   [
+    0,
+    0,
+    1
+   ],
+   [
+    1,
+    0,
+    0
+   ]
+  ],
+  "fit": [
+   "y",
+   0.133
+  ],
+  "tex": 1024
+ },
+ {
+  "src": "scripts/models/raw/power_supply_aerocool_kcas_500w_atx.glb",
+  "out": "public/models/psu/atx-psu.glb",
+  "axes": [
+   [
+    -1,
+    0,
+    0
+   ],
+   [
+    0,
+    1,
+    0
+   ],
+   [
+    0,
+    0,
+    -1
+   ]
+  ],
+  "fit": [
+   "z",
+   0.16
+  ],
+  "tex": 1024
+ },
+ {
+  "src": "scripts/models/raw/storage.glb",
+  "out": "public/models/storage/nvme-m2.glb",
+  "axes": [
+   [
+    0,
+    0,
+    1
+   ],
+   [
+    -1,
+    0,
+    0
+   ],
+   [
+    0,
+    -1,
+    0
+   ]
+  ],
+  "fit": [
+   "z",
+   0.08
+  ],
+  "tex": 1024
+ },
+ {
+  "src": "scripts/models/raw/samsung_ssd_2.5in_-_dirty.glb",
+  "out": "public/models/storage/sata-ssd.glb",
+  "fit": [
+   "x",
+   0.1
+  ],
+  "tex": 1024
+ },
+ {
+  "src": "scripts/models/raw/cabinet.glb",
+  "out": "public/models/cases/glass-tower.glb",
+  "fit": [
+   "y",
+   0.48
+  ],
+  "anchor": "bottom",
+  "tex": 2048
+ },
+ {
+  "src": "scripts/models/raw/corsair-4000d.glb",
+  "out": "public/models/cases/corsair-4000d.glb",
+  "fit": [
+   "y",
+   0.466
+  ],
+  "anchor": "bottom"
+ },
+ {
+  "src": "scripts/models/raw/fan.glb",
+  "out": "public/models/fans/argb-120.glb",
+  "axes": [
+   [
+    1,
+    0,
+    0
+   ],
+   [
+    0,
+    0,
+    1
+   ],
+   [
+    0,
+    -1,
+    0
+   ]
+  ],
+  "fit": [
+   "x",
+   0.12
+  ]
+ },
+ {
+  "src": "scripts/models/raw/asus_pc_gaming_monitor.glb",
+  "out": "public/models/setup/monitor-27.glb",
+  "axes": [
+   [
+    -1,
+    0,
+    0
+   ],
+   [
+    0,
+    1,
+    0
+   ],
+   [
+    0,
+    0,
+    -1
+   ]
+  ],
+  "fit": [
+   "x",
+   0.615
+  ],
+  "anchor": "bottom",
+  "tex": 2048
+ },
+ {
+  "src": "scripts/models/raw/gigabyte_aorus_k1_rgb_gaming_keyboard.glb",
+  "out": "public/models/setup/keyboard-rgb.glb",
+  "fit": [
+   "x",
+   0.44
+  ],
+  "anchor": "bottom",
+  "tex": 2048
+ },
+ {
+  "src": "scripts/models/raw/computer_mouse.glb",
+  "out": "public/models/setup/mouse-gaming.glb",
+  "axes": [
+   [
+    -1,
+    0,
+    0
+   ],
+   [
+    0,
+    1,
+    0
+   ],
+   [
+    0,
+    0,
+    -1
+   ]
+  ],
+  "fit": [
+   "z",
+   0.125
+  ],
+  "anchor": "bottom",
+  "tex": 1024
+ },
+ {
+  "src": "scripts/models/raw/damascus_mousepad.glb",
+  "out": "public/models/setup/desk-mat.glb",
+  "fit": [
+   "x",
+   0.8
+  ],
+  "anchor": "bottom",
+  "tex": 2048
+ },
+ {
+  "src": "scripts/models/raw/desk.glb",
+  "out": "public/models/setup/desk-walnut.glb",
+  "fit": [
+   "x",
+   1.6
+  ],
+  "anchor": "bottom",
+  "tex": 2048,
+  "restyle": [
+   {
+    "match": "walnut",
+    "color": [
+     0.42,
+     0.27,
+     0.17,
+     1
+    ],
+    "rough": 0.6
+   }
+  ]
+ },
+ {
+  "src": "scripts/models/raw/gaming-chair.glb",
+  "out": "public/models/setup/gaming-chair.glb",
+  "fit": [
+   "y",
+   1.29
+  ],
+  "anchor": "bottom",
+  "tex": 2048
+ },
+ {
+  "src": "scripts/models/raw/plant.glb",
+  "out": "public/models/decor/ficus-plant.glb",
+  "fit": [
+   "y",
+   1.2
+  ],
+  "anchor": "bottom",
+  "tex": 1024
+ }
+]
