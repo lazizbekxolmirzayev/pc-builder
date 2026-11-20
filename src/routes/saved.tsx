@@ -33,7 +33,7 @@ function SavedPage() {
   return (
     <div className="app-grid mx-auto max-w-7xl px-4 py-10 sm:px-6">
       <div className="mb-8">
-        <p className="eyebrow">{t("cart.eyebrow")}</p>
+        <p className="eyebrow">Your workspace / 03</p>
         <h1 className="mt-2 text-4xl font-black tracking-tight sm:text-5xl">{t("saved.title")}</h1>
         <p className="mt-3 max-w-2xl text-muted-foreground">{t("saved.sub")}</p>
       </div>
@@ -53,7 +53,7 @@ function SavedPage() {
                   </p>
                 </div>
                 <div className="text-right">
-                  <div className="text-xl font-black text-foreground">{money(build.total)}</div>
+                  <div className="text-xl font-black text-primary">{money(build.total)}</div>
                   <div className="mt-1 text-xs text-muted-foreground">
                     {t("saved.score")}:{" "}
                     <span className="font-bold text-foreground">{build.score}</span>
@@ -90,7 +90,7 @@ function SavedPage() {
         </div>
       ) : (
         <div className="surface rounded-xl p-10 text-center">
-          <FolderOpen className="mx-auto h-10 w-10 text-brand" />
+          <FolderOpen className="mx-auto h-10 w-10 text-primary" />
           <h2 className="mt-4 text-2xl font-black">{t("saved.empty")}</h2>
           <p className="mx-auto mt-2 max-w-sm text-sm text-muted-foreground">{t("saved.hint")}</p>
           <Button asChild className="group mt-6">

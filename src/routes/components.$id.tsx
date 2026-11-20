@@ -113,7 +113,7 @@ function ComponentDetailPage() {
 
         <div className="space-y-6">
           <div>
-            <p className="text-xs font-bold uppercase tracking-[0.18em] text-brand">
+            <p className="text-xs font-bold uppercase tracking-[0.18em] text-primary">
               {t(`cat.${part.category}`)} · {part.brand}
             </p>
             <h1 className="mt-3 text-4xl font-black tracking-tight sm:text-5xl">{part.name}</h1>
@@ -122,21 +122,21 @@ function ComponentDetailPage() {
           <div className="grid gap-3 sm:grid-cols-3">
             <div className="rounded-xl border border-border bg-card p-4">
               <div className="mb-2 flex items-center gap-2 text-sm text-muted-foreground">
-                <ShoppingCart className="h-4 w-4 text-brand" />
+                <ShoppingCart className="h-4 w-4 text-primary" />
                 {t("details.price")}
               </div>
-              <div className="text-2xl font-black text-foreground">{money(part.price)}</div>
+              <div className="text-2xl font-black text-primary">{money(part.price)}</div>
             </div>
             <div className="rounded-xl border border-border bg-card p-4">
               <div className="mb-2 flex items-center gap-2 text-sm text-muted-foreground">
-                <Bolt className="h-4 w-4 text-brand" />
+                <Bolt className="h-4 w-4 text-primary" />
                 {t("details.power")}
               </div>
               <div className="text-2xl font-black">{part.watts}W</div>
             </div>
             <div className="rounded-xl border border-border bg-card p-4">
               <div className="mb-2 flex items-center gap-2 text-sm text-muted-foreground">
-                <Gauge className="h-4 w-4 text-brand" />
+                <Gauge className="h-4 w-4 text-primary" />
                 {t("details.perf")}
               </div>
               <div className="text-2xl font-black">{part.perf}/100</div>
@@ -146,7 +146,7 @@ function ComponentDetailPage() {
           <div className="rounded-2xl border border-border bg-card p-5">
             <div className="mb-3 flex items-center justify-between text-sm font-semibold">
               <span>{t("details.perf")}</span>
-              <span className="text-brand">{part.perf}/100</span>
+              <span className="text-primary">{part.perf}/100</span>
             </div>
             <Progress value={part.perf} />
           </div>

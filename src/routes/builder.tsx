@@ -34,7 +34,6 @@ import {
   useBuild,
 } from "@/lib/build";
 import { useCart } from "@/lib/cart";
-import { CATEGORY_ICONS } from "@/lib/categories";
 import { useI18n } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
 
@@ -94,7 +93,7 @@ function BuilderPage() {
     <div className="app-grid mx-auto max-w-7xl px-4 py-10 sm:px-6">
       <div className="mb-8 flex flex-col justify-between gap-4 lg:flex-row lg:items-end">
         <div>
-          <p className="eyebrow">{t("nav.builder")}</p>
+          <p className="eyebrow">Configuration workspace / 01</p>
           <h1 className="mt-2 text-4xl font-black tracking-tight sm:text-5xl">
             {t("builder.title")}
           </h1>
@@ -124,14 +123,9 @@ function BuilderPage() {
                 className="h-auto w-full justify-start rounded-lg border border-transparent px-3 py-3 text-left hover:border-border/80 hover:bg-card/70"
                 onClick={() => setActive(category)}
               >
-                {(() => {
-                  const Icon = CATEGORY_ICONS[category];
-                  return (
-                    <Icon
-                      className={cn(active === category ? "text-brand" : "text-muted-foreground")}
-                    />
-                  );
-                })()}
+                <Cpu
+                  className={cn(active === category ? "text-primary" : "text-muted-foreground")}
+                />
                 <span className="min-w-0 flex-1 text-left">
                   <span className="block font-bold">{t(`cat.${category}`)}</span>
                   <span className="block truncate text-xs text-muted-foreground">
@@ -185,7 +179,7 @@ function BuilderPage() {
                 <p className="eyebrow">{t("summary.live")}</p>
                 <h2 className="mt-1 text-xl font-black">{t("summary.title")}</h2>
               </div>
-              <Activity className="h-5 w-5 text-brand" />
+              <Activity className="h-5 w-5 text-primary" />
             </div>
             <div className="mt-5 space-y-3">
               {setupPrice(selection) > 0 && (
@@ -202,7 +196,7 @@ function BuilderPage() {
               )}
               <div className="flex justify-between gap-3 text-sm">
                 <span className="text-muted-foreground">{t("summary.total")}</span>
-                <span className="font-black text-foreground">{money(totalPrice(selection))}</span>
+                <span className="font-black text-primary">{money(totalPrice(selection))}</span>
               </div>
               <div className="flex justify-between gap-3 text-sm">
                 <span className="text-muted-foreground">{t("summary.power")}</span>
@@ -214,7 +208,7 @@ function BuilderPage() {
                   className={cn(
                     "font-black",
                     level === "ok"
-                      ? "text-brand"
+                      ? "text-primary"
                       : level === "warn"
                         ? "text-chart-5"
                         : "text-destructive",
@@ -229,7 +223,7 @@ function BuilderPage() {
               <div className="my-5 flex items-center gap-4 rounded-xl border border-primary/20 bg-primary/5 p-3">
                 <div className="metric-ring grid h-20 w-20 shrink-0 place-items-center rounded-full p-1 shadow-[0_0_30px_-12px_var(--glow)]">
                   <div className="grid h-full w-full place-items-center rounded-full bg-card text-center">
-                    <span className="text-xl font-black text-brand">
+                    <span className="text-xl font-black text-primary">
                       {perf.score}
                       <small className="text-[10px] text-muted-foreground">/100</small>
                     </span>
@@ -237,7 +231,7 @@ function BuilderPage() {
                 </div>
                 <div>
                   <p className="flex items-center gap-1 text-[10px] font-bold uppercase tracking-[0.14em] text-muted-foreground">
-                    <Gauge className="h-3.5 w-3.5 text-brand" /> {t("perf.label")}
+                    <Gauge className="h-3.5 w-3.5 text-primary" /> {t("perf.label")}
                   </p>
                   <p className="mt-1 text-sm font-semibold">{t("perf.note")}</p>
                   <p className="mt-1 text-xs text-muted-foreground">
@@ -282,7 +276,7 @@ function BuilderPage() {
           {chosen.length > 0 && (
             <section className="overflow-hidden rounded-xl border border-border/80 bg-card">
               <div className="flex items-center justify-between border-b border-border bg-card/60 p-3.5">
-                <span className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-brand">
+                <span className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-primary">
                   <Boxes className="h-4 w-4" />
                   {t("v3d.livePreview")}
                 </span>
@@ -324,7 +318,7 @@ function BuilderPage() {
                       <Icon
                         className={cn(
                           "mt-0.5 h-4 w-4 shrink-0",
-                          check.level === "bad" ? "text-destructive" : "text-brand",
+                          check.level === "bad" ? "text-destructive" : "text-primary",
                         )}
                       />
                       <span className="text-muted-foreground">{t(check.messageKey)}</span>
@@ -344,7 +338,7 @@ function BuilderPage() {
                 <div>
                   <div className="mb-2 flex justify-between text-sm font-semibold">
                     <span>{t("perf.score")}</span>
-                    <span className="text-brand">{perf.score}/100</span>
+                    <span className="text-primary">{perf.score}/100</span>
                   </div>
                   <Progress value={perf.score} />
                 </div>

@@ -60,7 +60,7 @@ function AboutPage() {
                 key={feature.title}
                 className="rounded-xl border border-border/80 bg-card/80 p-5 transition-all hover:-translate-y-1 hover:border-primary/50 hover:shadow-[0_20px_50px_-32px_var(--glow)]"
               >
-                <Icon className="h-7 w-7 text-brand" />
+                <Icon className="h-7 w-7 text-primary" />
                 <h2 className="mt-4 text-xl font-black">{feature.title}</h2>
                 <p className="mt-2 text-sm leading-6 text-muted-foreground">{feature.body}</p>
               </article>
@@ -75,7 +75,7 @@ function AboutPage() {
           ["100%", "local and private"],
         ].map(([value, label]) => (
           <div key={label} className="flex items-center gap-3">
-            <Zap className="h-5 w-5 text-brand" />
+            <Zap className="h-5 w-5 text-primary" />
             <div>
               <p className="text-2xl font-black">{value}</p>
               <p className="text-xs uppercase tracking-[0.14em] text-muted-foreground">{label}</p>
@@ -96,7 +96,7 @@ function AboutPage() {
                 href={m.source}
                 target="_blank"
                 rel="noreferrer"
-                className="font-medium text-foreground hover:text-brand"
+                className="font-medium text-foreground hover:text-primary"
               >
                 {m.label}
               </a>{" "}
