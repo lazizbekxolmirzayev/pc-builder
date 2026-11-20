@@ -63,7 +63,7 @@ export function ModelLibrary() {
                   className={cn(
                     "block w-full truncate rounded-lg px-2.5 py-1.5 text-left text-sm transition-colors",
                     active.key === e.key
-                      ? "bg-primary/15 font-semibold text-primary"
+                      ? "bg-primary/15 font-semibold text-brand"
                       : "hover:bg-secondary",
                   )}
                 >
@@ -87,7 +87,7 @@ export function ModelLibrary() {
                   href={model.source}
                   target="_blank"
                   rel="noreferrer"
-                  className="ml-2 inline-flex items-center gap-1 text-primary hover:underline"
+                  className="ml-2 inline-flex items-center gap-1 text-brand hover:underline"
                 >
                   source <ExternalLink className="h-3 w-3" />
                 </a>

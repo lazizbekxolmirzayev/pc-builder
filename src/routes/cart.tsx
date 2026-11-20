@@ -41,14 +41,14 @@ function CartPage() {
                 <Link
                   to="/components/$id"
                   params={{ id: part.id }}
-                  className="h-24 w-28 shrink-0 overflow-hidden rounded-lg bg-[#080f1b]"
+                  className="h-24 w-28 shrink-0 overflow-hidden rounded-lg bg-media"
                 >
                   <img src={part.image} alt={part.name} className="h-full w-full object-cover" />
                 </Link>
                 <div className="flex min-w-0 flex-1 flex-col gap-2">
                   <div className="flex items-start justify-between gap-3">
                     <div className="min-w-0">
-                      <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-primary/80">
+                      <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-brand/80">
                         {part.brand} · {t(`cat.${part.category}`)}
                       </p>
                       <h2 className="mt-1 line-clamp-2 font-bold leading-snug">{part.name}</h2>
@@ -70,7 +70,7 @@ function CartPage() {
                       <button
                         onClick={() => setQty(part.id, qty - 1)}
                         aria-label="-"
-                        className="grid h-8 w-8 place-items-center text-muted-foreground hover:text-primary"
+                        className="grid h-8 w-8 place-items-center text-muted-foreground hover:text-brand"
                       >
                         <Minus className="h-3.5 w-3.5" />
                       </button>
@@ -79,7 +79,7 @@ function CartPage() {
                         onClick={() => setQty(part.id, qty + 1)}
                         disabled={qty >= MAX_QTY}
                         aria-label="+"
-                        className="grid h-8 w-8 place-items-center text-muted-foreground hover:text-primary disabled:opacity-40"
+                        className="grid h-8 w-8 place-items-center text-muted-foreground hover:text-brand disabled:opacity-40"
                       >
                         <Plus className="h-3.5 w-3.5" />
                       </button>
@@ -90,7 +90,7 @@ function CartPage() {
                           {money(part.price)} × {qty}
                         </div>
                       )}
-                      <div className="text-lg font-black text-primary">
+                      <div className="text-lg font-black text-foreground">
                         {money(part.price * qty)}
                       </div>
                     </div>
@@ -119,7 +119,7 @@ function CartPage() {
                 </div>
                 <div className="flex justify-between gap-3 border-t border-border/60 pt-3">
                   <span className="text-muted-foreground">{t("cart.total")}</span>
-                  <span className="text-xl font-black text-primary">{money(total)}</span>
+                  <span className="text-xl font-black text-foreground">{money(total)}</span>
                 </div>
               </div>
               <Button asChild className="mt-5 w-full" size="lg">
@@ -133,7 +133,7 @@ function CartPage() {
         </div>
       ) : (
         <div className="rounded-2xl border border-dashed border-border bg-card/50 p-12 text-center">
-          <ShoppingCart className="mx-auto h-10 w-10 text-primary" />
+          <ShoppingCart className="mx-auto h-10 w-10 text-brand" />
           <h2 className="mt-4 text-2xl font-black">{t("cart.empty")}</h2>
           <p className="mx-auto mt-2 max-w-sm text-sm text-muted-foreground">
             {t("cart.emptyHint")}

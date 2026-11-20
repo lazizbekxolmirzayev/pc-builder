@@ -67,13 +67,13 @@ function CheckoutPage() {
     return (
       <div className="app-grid mx-auto max-w-2xl px-4 py-16 sm:px-6">
         <div className="surface rounded-2xl p-8 text-center">
-          <CheckCircle2 className="mx-auto h-12 w-12 text-primary" />
+          <CheckCircle2 className="mx-auto h-12 w-12 text-brand" />
           <h1 className="mt-4 text-3xl font-black">{t("checkout.successTitle")}</h1>
           <p className="mt-2 text-muted-foreground">{t("checkout.successText")}</p>
           <p className="mt-5 text-xs font-bold uppercase tracking-[0.14em] text-muted-foreground">
             {t("checkout.orderNo")}
           </p>
-          <p className="text-2xl font-black text-primary">{placed.id}</p>
+          <p className="text-2xl font-black text-brand">{placed.id}</p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <Button asChild>
               <Link to="/orders">{t("orders.title")}</Link>
@@ -105,7 +105,7 @@ function CheckoutPage() {
     cn(
       "rounded-lg border px-4 py-2.5 text-sm font-semibold transition-colors",
       active
-        ? "border-primary bg-primary/10 text-primary"
+        ? "border-primary bg-primary/10 text-brand"
         : "border-border text-muted-foreground hover:border-primary/50",
     );
 
@@ -243,7 +243,7 @@ function CheckoutPage() {
               <span className="text-muted-foreground">
                 {t("cart.total")} ({count})
               </span>
-              <span className="text-xl font-black text-primary">{money(total)}</span>
+              <span className="text-xl font-black text-foreground">{money(total)}</span>
             </div>
             {err("submit") && (
               <p className="mt-3 text-xs text-destructive">{t("checkout.errSubmit")}</p>

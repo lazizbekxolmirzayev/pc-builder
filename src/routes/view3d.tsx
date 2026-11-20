@@ -76,7 +76,7 @@ function View3DPage() {
   if (!chosen.length) {
     return (
       <div className="mx-auto max-w-3xl px-4 py-24 text-center sm:px-6">
-        <Boxes className="mx-auto mb-6 h-14 w-14 text-primary" />
+        <Boxes className="mx-auto mb-6 h-14 w-14 text-brand" />
         <h1 className="text-4xl font-black tracking-tight">{t("v3d.title")}</h1>
         <p className="mt-3 text-muted-foreground">{t("v3d.empty")}</p>
         <Button asChild className="mt-6">
@@ -90,7 +90,7 @@ function View3DPage() {
     <div className="app-grid mx-auto max-w-7xl px-4 py-10 sm:px-6">
       <div className="mb-6 flex flex-col justify-between gap-4 lg:flex-row lg:items-end">
         <div>
-          <p className="eyebrow">{t("v3d.kicker")} / 04</p>
+          <p className="eyebrow">{t("v3d.kicker")}</p>
           <h1 className="mt-2 text-4xl font-black tracking-tight sm:text-5xl">{t("v3d.title")}</h1>
           <p className="mt-3 max-w-2xl text-muted-foreground">{t("v3d.sub")}</p>
         </div>
@@ -104,7 +104,7 @@ function View3DPage() {
 
       <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_22rem]">
         <div className="surface overflow-hidden rounded-xl shadow-xl">
-          <div className="grid grid-cols-3 border-b border-border bg-black/20 text-center">
+          <div className="grid grid-cols-3 border-b border-border bg-secondary text-center">
             <div className="border-r border-border px-3 py-3">
               <div className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">
                 {t("v3d.partsCount")}
@@ -121,7 +121,7 @@ function View3DPage() {
               <div className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">
                 {t("v3d.mode")}
               </div>
-              <div className="mt-1 text-sm font-black text-primary">{t("v3d.interactive")}</div>
+              <div className="mt-1 text-sm font-black text-brand">{t("v3d.interactive")}</div>
             </div>
           </div>
 
@@ -179,10 +179,10 @@ function View3DPage() {
               <div className="space-y-2 rounded-xl bg-secondary/50 p-3">
                 <div className="flex items-center justify-between text-xs font-bold uppercase tracking-wider text-muted-foreground">
                   <span className="flex items-center gap-1.5">
-                    <Layers className="h-3.5 w-3.5 text-primary" />
+                    <Layers className="h-3.5 w-3.5 text-brand" />
                     {t("v3d.exploded")}
                   </span>
-                  <span className="font-mono text-primary">{Math.round(exploded * 100)}%</span>
+                  <span className="font-mono text-brand">{Math.round(exploded * 100)}%</span>
                 </div>
                 <Slider
                   value={[exploded * 100]}
@@ -289,7 +289,7 @@ function View3DPage() {
                   size="sm"
                   className={cn(
                     "h-7 text-xs",
-                    focusPart === c && "border border-primary font-bold text-primary",
+                    focusPart === c && "border border-primary font-bold text-brand",
                   )}
                   onClick={() => setFocusPart(c)}
                 >
@@ -307,7 +307,7 @@ function View3DPage() {
             <div className="mt-4 space-y-2 text-sm">
               <div className="flex justify-between gap-3">
                 <span className="text-muted-foreground">{t("summary.total")}</span>
-                <span className="font-black text-primary">{money(totalPrice(selection))}</span>
+                <span className="font-black text-brand">{money(totalPrice(selection))}</span>
               </div>
               <div className="flex justify-between gap-3">
                 <span className="text-muted-foreground">{t("summary.power")}</span>
@@ -319,7 +319,7 @@ function View3DPage() {
                   className={cn(
                     "font-black",
                     level === "ok"
-                      ? "text-primary"
+                      ? "text-brand"
                       : level === "warn"
                         ? "text-chart-5"
                         : "text-destructive",
@@ -331,7 +331,7 @@ function View3DPage() {
               {perf && (
                 <div className="flex justify-between gap-3">
                   <span className="text-muted-foreground">{t("perf.score")}</span>
-                  <span className="font-black text-primary">{perf.score}/100</span>
+                  <span className="font-black text-brand">{perf.score}/100</span>
                 </div>
               )}
             </div>
@@ -366,7 +366,7 @@ function View3DPage() {
                     <span
                       className={cn(
                         "min-w-0 truncate text-right font-semibold",
-                        isFocused && "text-primary",
+                        isFocused && "text-brand",
                       )}
                     >
                       {part?.name ?? "—"}

@@ -44,8 +44,8 @@ function OrdersPage() {
                   </p>
                 </div>
                 <div className="text-right">
-                  <div className="text-xl font-black text-primary">{money(o.total)}</div>
-                  <span className="mt-1 inline-block rounded-md border border-primary/30 bg-primary/10 px-2 py-0.5 text-[10px] font-bold uppercase tracking-[0.14em] text-primary">
+                  <div className="text-xl font-black text-foreground">{money(o.total)}</div>
+                  <span className="mt-1 inline-block rounded-md border border-primary/30 bg-primary/10 px-2 py-0.5 text-[10px] font-bold uppercase tracking-[0.14em] text-brand">
                     {t(`orders.status.${o.status}`)}
                   </span>
                 </div>
@@ -68,7 +68,7 @@ function OrdersPage() {
         </div>
       ) : (
         <div className="rounded-2xl border border-dashed border-border bg-card/50 p-12 text-center">
-          <Package className="mx-auto h-10 w-10 text-primary" />
+          <Package className="mx-auto h-10 w-10 text-brand" />
           <h2 className="mt-4 text-2xl font-black">{t("orders.empty")}</h2>
           <Button asChild className="mt-6">
             <Link to="/components">{t("cart.browse")}</Link>

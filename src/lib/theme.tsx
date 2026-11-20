@@ -1,32 +1,46 @@
-import { createContext, useContext, useEffect, useState, type ReactNode } from "react";
+import { createContext, useCallback, useContext, useEffect, useState, type ReactNode } from "react";
 
-type Theme = "dark" | "light";
+export type Theme = "dark" | "light";
+const KEY = "pcb.theme";
 
-const Ctx = createContext<{ theme: Theme; toggle: () => void }>({
-  theme: "dark",
+/** Runs in <head> before first paint, so the page never flashes the wrong theme. */
+export const THEME_BOOT = `try{var t=localStorage.getItem('${KEY}');if(t!=='dark'&&t!=='light'){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'}document.documentElement.classList.toggle('dark',t==='dark');document.documentElement.style.colorScheme=t}catch(e){}`;
+
+const Ctx = createContext<{ theme: Theme; toggle: () => void; setTheme: (t: Theme) => void }>({
+  theme: "light",
   toggle: () => {},
+  setTheme: () => {},
 });
 
-export function ThemeProvider({ children }: { children: ReactNode }) {
-  const [theme, setTheme] = useState<Theme>("dark");
+function apply(theme: Theme) {
+  const root = document.documentElement;
+  root.classList.toggle("dark", theme === "dark");
+  root.style.colorScheme = theme;
+}
 
+export function ThemeProvider({ children }: { children: ReactNode }) {
+  const [theme, setThemeState] = useState<Theme>("light");
+
+  // Pick up whatever the boot script already applied (stored choice or system preference).
   useEffect(() => {
-    const stored = localStorage.getItem("pcb.theme") as Theme | null;
-    if (stored) setTheme(stored);
+    setThemeState(document.documentElement.classList.contains("dark") ? "dark" : "light");
   }, []);
 
-  useEffect(() => {
-    const root = document.documentElement;
-    root.classList.toggle("dark", theme === "dark");
-  }, [theme]);
+  const setTheme = useCallback((next: Theme) => {
+    setThemeState(next);
+    apply(next);
+    try {
+      localStorage.setItem(KEY, next);
+    } catch {
+      /* private mode */
+    }
+  }, []);
 
-  const toggle = () => {
-    const next = theme === "dark" ? "light" : "dark";
-    setTheme(next);
-    localStorage.setItem("pcb.theme", next);
-  };
+  const toggle = useCallback(() => {
+    setTheme(document.documentElement.classList.contains("dark") ? "light" : "dark");
+  }, [setTheme]);
 
-  return <Ctx.Provider value={{ theme, toggle }}>{children}</Ctx.Provider>;
+  return <Ctx.Provider value={{ theme, toggle, setTheme }}>{children}</Ctx.Provider>;
 }
 
 export const useTheme = () => useContext(Ctx);

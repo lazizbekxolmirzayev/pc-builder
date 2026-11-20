@@ -13,11 +13,12 @@ import { useEffect, type ReactNode } from "react";
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { Footer } from "@/components/site/Footer";
+import { FloatingActions } from "@/components/site/FloatingActions";
 import { Navbar } from "@/components/site/Navbar";
 import { BuildProvider } from "@/lib/build";
 import { CartProvider } from "@/lib/cart";
 import { I18nProvider } from "@/lib/i18n";
-import { ThemeProvider } from "@/lib/theme";
+import { THEME_BOOT, ThemeProvider } from "@/lib/theme";
 
 function NotFoundComponent() {
   return (
@@ -102,8 +103,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
+        <script dangerouslySetInnerHTML={{ __html: THEME_BOOT }} />
         <HeadContent />
       </head>
       <body>
@@ -132,6 +134,7 @@ function RootComponent() {
           <Outlet />
         </main>
         <Footer />
+        <FloatingActions />
       </div>
     </QueryClientProvider>
   );

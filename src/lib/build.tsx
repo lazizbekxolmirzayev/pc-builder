@@ -315,7 +315,5 @@ export function useBuild() {
 
 export const money = (n: number) =>
   CURRENCY === "UZS"
-    ? `${Math.round(n * USD_TO_UZS)
-        .toLocaleString("en-US")
-        .replace(/,/g, " ")} so'm`
+    ? `${(Math.round((n * USD_TO_UZS) / 1000) * 1000).toLocaleString("en-US").replace(/,/g, " ")} so'm`
     : `$${n.toLocaleString("en-US")}`;
