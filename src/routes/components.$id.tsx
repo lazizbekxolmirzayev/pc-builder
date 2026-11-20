@@ -16,6 +16,7 @@ import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import { getPart, partsByCategory } from "@/data/parts";
 import { money, useBuild } from "@/lib/build";
+import { useCart } from "@/lib/cart";
 import { useI18n } from "@/lib/i18n";
 
 export const Route = createFileRoute("/components/$id")({
@@ -43,6 +44,8 @@ function ComponentDetailPage() {
   const { id } = Route.useParams();
   const { t } = useI18n();
   const { selection, setPart } = useBuild();
+  const { add } = useCart();
+  const [added, setAdded] = useState(false);
   const [viewMode, setViewMode] = useState<"3d" | "photo">("3d");
   const part = getPart(id);
 
@@ -162,10 +165,29 @@ function ComponentDetailPage() {
             </dl>
           </div>
 
-          <Button size="lg" className="w-full" onClick={() => setPart(part.category, part.id)}>
-            {selected ? <Check /> : <ShoppingCart />}
-            {selected ? t("details.inBuild") : t("details.addToBuild")}
-          </Button>
+          <div className="grid gap-3 sm:grid-cols-2">
+            <Button
+              size="lg"
+              variant="secondary"
+              className="w-full"
+              onClick={() => setPart(part.category, part.id)}
+            >
+              {selected ? <Check /> : <Boxes />}
+              {selected ? t("details.inBuild") : t("details.addToBuild")}
+            </Button>
+            <Button
+              size="lg"
+              className="w-full"
+              onClick={() => {
+                add(part.id);
+                setAdded(true);
+                window.setTimeout(() => setAdded(false), 1500);
+              }}
+            >
+              {added ? <Check /> : <ShoppingCart />}
+              {added ? t("cart.added") : t("cart.add")}
+            </Button>
+          </div>
         </div>
       </section>
 

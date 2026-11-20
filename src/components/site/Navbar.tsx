@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
-import { ArrowUpRight, Cpu, Globe, Menu, Moon, Search, Sun, X } from "lucide-react";
+import { ArrowUpRight, Cpu, Globe, Menu, Moon, Search, ShoppingCart, Sun, X } from "lucide-react";
 import { useState } from "react";
+import { useCart } from "@/lib/cart";
 import { useI18n, LANGS } from "@/lib/i18n";
 import { useTheme } from "@/lib/theme";
 import { cn } from "@/lib/utils";
@@ -18,6 +19,7 @@ export function Navbar() {
   const { t, lang, setLang } = useI18n();
   const { theme, toggle } = useTheme();
   const [open, setOpen] = useState(false);
+  const { count } = useCart();
 
   return (
     <header className="sticky top-0 z-50 border-b border-border/70 bg-background/80 shadow-[0_12px_40px_-28px_rgba(34,211,238,.7)] backdrop-blur-2xl">
@@ -83,6 +85,19 @@ export function Navbar() {
           >
             {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
           </button>
+
+          <Link
+            to="/cart"
+            aria-label={`${t("nav.cart")}: ${count}`}
+            className="relative grid h-9 w-9 place-items-center rounded-lg border border-border bg-card text-muted-foreground transition-colors hover:border-primary/50 hover:text-primary"
+          >
+            <ShoppingCart className="h-4 w-4" />
+            {count > 0 && (
+              <span className="absolute -right-1.5 -top-1.5 grid min-w-[1.1rem] place-items-center rounded-full bg-primary px-1 text-[10px] font-black leading-[1.1rem] text-primary-foreground">
+                {count > 99 ? "99+" : count}
+              </span>
+            )}
+          </Link>
 
           <ButtonLink />
 

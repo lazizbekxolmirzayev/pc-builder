@@ -15,6 +15,7 @@ import { reportLovableError } from "../lib/lovable-error-reporting";
 import { Footer } from "@/components/site/Footer";
 import { Navbar } from "@/components/site/Navbar";
 import { BuildProvider } from "@/lib/build";
+import { CartProvider } from "@/lib/cart";
 import { I18nProvider } from "@/lib/i18n";
 import { ThemeProvider } from "@/lib/theme";
 
@@ -108,7 +109,9 @@ function RootShell({ children }: { children: ReactNode }) {
       <body>
         <I18nProvider>
           <ThemeProvider>
-            <BuildProvider>{children}</BuildProvider>
+            <BuildProvider>
+              <CartProvider>{children}</CartProvider>
+            </BuildProvider>
           </ThemeProvider>
         </I18nProvider>
         <Scripts />

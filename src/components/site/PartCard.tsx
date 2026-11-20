@@ -1,7 +1,9 @@
 import { Link } from "@tanstack/react-router";
-import { Check, Plus, Gauge } from "lucide-react";
+import { Check, Plus, Gauge, ShoppingCart } from "lucide-react";
+import { useState } from "react";
 import type { Part } from "@/data/parts";
 import { money } from "@/lib/build";
+import { useCart } from "@/lib/cart";
 import { useI18n } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
 
@@ -17,6 +19,8 @@ export function PartCard({
   showDetails?: boolean;
 }) {
   const { t } = useI18n();
+  const { add } = useCart();
+  const [inCart, setInCart] = useState(false);
   const specs = Object.entries(part.specs).slice(0, 3);
 
   return (
@@ -63,7 +67,7 @@ export function PartCard({
         <div className="mt-auto flex items-end justify-between gap-2 border-t border-border/60 pt-3">
           <div>
             <p className="text-[10px] font-bold uppercase tracking-[0.14em] text-muted-foreground">
-              Price
+              {t("details.price")}
             </p>
             <span className="text-lg font-black text-primary">{money(part.price)}</span>
           </div>
@@ -77,6 +81,23 @@ export function PartCard({
                 {t("components.details")}
               </Link>
             )}
+            <button
+              onClick={() => {
+                add(part.id);
+                setInCart(true);
+                window.setTimeout(() => setInCart(false), 1500);
+              }}
+              aria-label={`${t("cart.add")}: ${part.name}`}
+              title={t("cart.add")}
+              className={cn(
+                "grid h-8 w-8 place-items-center rounded-lg border transition-colors active:scale-95",
+                inCart
+                  ? "border-primary bg-primary/15 text-primary"
+                  : "border-border text-muted-foreground hover:border-primary/60 hover:text-primary",
+              )}
+            >
+              {inCart ? <Check className="h-4 w-4" /> : <ShoppingCart className="h-4 w-4" />}
+            </button>
             {onAdd && (
               <button
                 onClick={onAdd}

@@ -12,7 +12,10 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as BuilderRouteImport } from './routes/builder'
+import { Route as CartRouteImport } from './routes/cart'
+import { Route as CheckoutRouteImport } from './routes/checkout'
 import { Route as ComponentsRouteImport } from './routes/components'
+import { Route as OrdersRouteImport } from './routes/orders'
 import { Route as SavedRouteImport } from './routes/saved'
 import { Route as View3dRouteImport } from './routes/view3d'
 import { Route as ComponentsIndexRouteImport } from './routes/components.index'
@@ -33,9 +36,24 @@ const BuilderRoute = BuilderRouteImport.update({
   path: '/builder',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CartRoute = CartRouteImport.update({
+  id: '/cart',
+  path: '/cart',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CheckoutRoute = CheckoutRouteImport.update({
+  id: '/checkout',
+  path: '/checkout',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ComponentsRoute = ComponentsRouteImport.update({
   id: '/components',
   path: '/components',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OrdersRoute = OrdersRouteImport.update({
+  id: '/orders',
+  path: '/orders',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SavedRoute = SavedRouteImport.update({
@@ -63,7 +81,10 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/builder': typeof BuilderRoute
+  '/cart': typeof CartRoute
+  '/checkout': typeof CheckoutRoute
   '/components': typeof ComponentsRouteWithChildren
+  '/orders': typeof OrdersRoute
   '/saved': typeof SavedRoute
   '/view3d': typeof View3dRoute
   '/components/$id': typeof ComponentsIdRoute
@@ -73,6 +94,9 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/builder': typeof BuilderRoute
+  '/cart': typeof CartRoute
+  '/checkout': typeof CheckoutRoute
+  '/orders': typeof OrdersRoute
   '/saved': typeof SavedRoute
   '/view3d': typeof View3dRoute
   '/components/$id': typeof ComponentsIdRoute
@@ -83,7 +107,10 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/builder': typeof BuilderRoute
+  '/cart': typeof CartRoute
+  '/checkout': typeof CheckoutRoute
   '/components': typeof ComponentsRouteWithChildren
+  '/orders': typeof OrdersRoute
   '/saved': typeof SavedRoute
   '/view3d': typeof View3dRoute
   '/components/$id': typeof ComponentsIdRoute
@@ -95,7 +122,10 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/builder'
+    | '/cart'
+    | '/checkout'
     | '/components'
+    | '/orders'
     | '/saved'
     | '/view3d'
     | '/components/$id'
@@ -105,6 +135,9 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/builder'
+    | '/cart'
+    | '/checkout'
+    | '/orders'
     | '/saved'
     | '/view3d'
     | '/components/$id'
@@ -114,7 +147,10 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/builder'
+    | '/cart'
+    | '/checkout'
     | '/components'
+    | '/orders'
     | '/saved'
     | '/view3d'
     | '/components/$id'
@@ -125,7 +161,10 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   BuilderRoute: typeof BuilderRoute
+  CartRoute: typeof CartRoute
+  CheckoutRoute: typeof CheckoutRoute
   ComponentsRoute: typeof ComponentsRouteWithChildren
+  OrdersRoute: typeof OrdersRoute
   SavedRoute: typeof SavedRoute
   View3dRoute: typeof View3dRoute
 }
@@ -153,11 +192,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BuilderRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/cart': {
+      id: '/cart'
+      path: '/cart'
+      fullPath: '/cart'
+      preLoaderRoute: typeof CartRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/checkout': {
+      id: '/checkout'
+      path: '/checkout'
+      fullPath: '/checkout'
+      preLoaderRoute: typeof CheckoutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/components': {
       id: '/components'
       path: '/components'
       fullPath: '/components'
       preLoaderRoute: typeof ComponentsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/orders': {
+      id: '/orders'
+      path: '/orders'
+      fullPath: '/orders'
+      preLoaderRoute: typeof OrdersRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/saved': {
@@ -209,7 +269,10 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   BuilderRoute: BuilderRoute,
+  CartRoute: CartRoute,
+  CheckoutRoute: CheckoutRoute,
   ComponentsRoute: ComponentsRouteWithChildren,
+  OrdersRoute: OrdersRoute,
   SavedRoute: SavedRoute,
   View3dRoute: View3dRoute,
 }

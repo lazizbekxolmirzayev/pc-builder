@@ -1,4 +1,4 @@
-import { Link, createFileRoute } from "@tanstack/react-router";
+import { Link, createFileRoute, useNavigate } from "@tanstack/react-router";
 import {
   Activity,
   Boxes,
@@ -6,6 +6,7 @@ import {
   Cpu,
   Gauge,
   Save,
+  ShoppingCart,
   Trash2,
   TriangleAlert,
   XCircle,
@@ -32,6 +33,7 @@ import {
   totalPrice,
   useBuild,
 } from "@/lib/build";
+import { useCart } from "@/lib/cart";
 import { useI18n } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
 
@@ -60,6 +62,8 @@ export const Route = createFileRoute("/builder")({
 function BuilderPage() {
   const { t } = useI18n();
   const { selection, setPart, removePart, clear, saveBuild } = useBuild();
+  const { addMany } = useCart();
+  const navigate = useNavigate();
   const [active, setActive] = useState<Category>("cpu");
   const [buildName, setBuildName] = useState("");
   const [filters, setFilters] = useState<FilterState>({
@@ -246,6 +250,18 @@ function BuilderPage() {
               <Button className="w-full" onClick={save} disabled={!chosen.length}>
                 <Save />
                 {t("summary.save")}
+              </Button>
+              <Button
+                variant="secondary"
+                className="w-full"
+                disabled={!chosen.length}
+                onClick={() => {
+                  addMany(chosen.map((p) => p.id));
+                  void navigate({ to: "/cart" });
+                }}
+              >
+                <ShoppingCart />
+                {t("cart.addBuild")}
               </Button>
               <Button asChild variant="secondary" className="w-full" disabled={!chosen.length}>
                 <Link to="/view3d">

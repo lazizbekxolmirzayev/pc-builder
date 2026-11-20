@@ -9,6 +9,7 @@ import {
 } from "react";
 import { CATEGORIES, getPart, type Category, type Part } from "@/data/parts";
 import { type Setup } from "@/data/setups";
+import { CURRENCY, USD_TO_UZS } from "@/lib/site-config";
 
 export type Selection = Partial<Record<Category, string>>;
 
@@ -312,4 +313,9 @@ export function useBuild() {
   return ctx;
 }
 
-export const money = (n: number) => `$${n.toLocaleString("en-US")}`;
+export const money = (n: number) =>
+  CURRENCY === "UZS"
+    ? `${Math.round(n * USD_TO_UZS)
+        .toLocaleString("en-US")
+        .replace(/,/g, " ")} so'm`
+    : `$${n.toLocaleString("en-US")}`;
