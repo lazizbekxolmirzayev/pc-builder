@@ -46,7 +46,7 @@ function ComponentsPage() {
     <div className="app-grid mx-auto max-w-7xl px-4 py-10 sm:px-6">
       <div className="mb-8 flex flex-col justify-between gap-5 lg:flex-row lg:items-end">
         <div>
-          <p className="eyebrow">Hardware library / 02</p>
+          <p className="eyebrow">{t("catalog.eyebrow")}</p>
           <h1 className="mt-2 text-4xl font-black tracking-tight sm:text-5xl">
             {t("components.title")}
           </h1>
@@ -56,7 +56,7 @@ function ComponentsPage() {
           to="/builder"
           className="inline-flex items-center gap-2 text-sm font-bold text-primary transition-colors hover:text-foreground"
         >
-          <Boxes className="h-4 w-4" /> Build with these parts <ArrowRight className="h-4 w-4" />
+          <Boxes className="h-4 w-4" /> {t("catalog.buildWith")} <ArrowRight className="h-4 w-4" />
         </Link>
       </div>
 

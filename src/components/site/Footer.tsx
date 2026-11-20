@@ -16,12 +16,11 @@ export function Footer() {
             PC BUILDER
           </div>
           <p className="mt-4 max-w-xs text-sm leading-6 text-muted-foreground">
-            A precise workspace for choosing hardware, checking compatibility and planning your next
-            build.
+            {t("footer.about")}
           </p>
         </div>
         <div>
-          <p className="eyebrow">Workspace</p>
+          <p className="eyebrow">{t("footer.workspace")}</p>
           <nav className="mt-4 grid gap-2 text-sm text-muted-foreground">
             <Link to="/builder" className="transition-colors hover:text-primary">
               {t("nav.builder")}
@@ -35,7 +34,7 @@ export function Footer() {
           </nav>
         </div>
         <div>
-          <p className="eyebrow">Explore</p>
+          <p className="eyebrow">{t("footer.explore")}</p>
           <nav className="mt-4 grid gap-2 text-sm text-muted-foreground">
             <Link to="/saved" className="transition-colors hover:text-primary">
               {t("nav.saved")}
@@ -47,7 +46,7 @@ export function Footer() {
               to="/builder"
               className="inline-flex items-center gap-1 text-primary transition-colors hover:text-foreground"
             >
-              Start a build <ArrowUpRight className="h-3.5 w-3.5" />
+              {t("footer.startBuild")} <ArrowUpRight className="h-3.5 w-3.5" />
             </Link>
           </nav>
         </div>

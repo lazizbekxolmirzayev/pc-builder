@@ -93,7 +93,7 @@ function BuilderPage() {
     <div className="app-grid mx-auto max-w-7xl px-4 py-10 sm:px-6">
       <div className="mb-8 flex flex-col justify-between gap-4 lg:flex-row lg:items-end">
         <div>
-          <p className="eyebrow">Configuration workspace / 01</p>
+          <p className="eyebrow">{t("builder.eyebrow")}</p>
           <h1 className="mt-2 text-4xl font-black tracking-tight sm:text-5xl">
             {t("builder.title")}
           </h1>

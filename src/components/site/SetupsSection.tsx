@@ -30,7 +30,7 @@ function SetupCard({ setup }: { setup: Setup }) {
           </div>
           <span className="text-xl font-black text-primary">{money(setup.price)}</span>
         </div>
-        <p className="mt-2 text-sm text-muted-foreground">{setup.tagline}</p>
+        <p className="mt-2 text-sm text-muted-foreground">{t(`setup.${setup.id}`)}</p>
         <div className="mt-3 flex flex-wrap gap-2">
           {Object.entries(setup.specs).map(([k, v]) => (
             <span

@@ -149,12 +149,13 @@ export function Navbar() {
 }
 
 function ButtonLink() {
+  const { t } = useI18n();
   return (
     <Link
       to="/builder"
       className="group hidden items-center gap-1.5 rounded-lg bg-primary px-3.5 py-2 text-xs font-extrabold text-primary-foreground shadow-[0_0_25px_-10px_var(--glow)] transition-all hover:-translate-y-0.5 hover:brightness-110 sm:flex"
     >
-      Start building
+      {t("nav.start")}
       <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
     </Link>
   );

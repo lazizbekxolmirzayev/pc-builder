@@ -90,7 +90,7 @@ function View3DPage() {
     <div className="app-grid mx-auto max-w-7xl px-4 py-10 sm:px-6">
       <div className="mb-6 flex flex-col justify-between gap-4 lg:flex-row lg:items-end">
         <div>
-          <p className="eyebrow">{t("v3d.kicker")} / 04</p>
+          <p className="eyebrow">{t("v3d.kicker")}</p>
           <h1 className="mt-2 text-4xl font-black tracking-tight sm:text-5xl">{t("v3d.title")}</h1>
           <p className="mt-3 max-w-2xl text-muted-foreground">{t("v3d.sub")}</p>
         </div>

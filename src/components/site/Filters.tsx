@@ -1,6 +1,7 @@
 import { Search } from "lucide-react";
 import { BRANDS, CATEGORIES, type Category } from "@/data/parts";
 import { useI18n } from "@/lib/i18n";
+import { money } from "@/lib/build";
 
 export type SortKey = "priceAsc" | "priceDesc" | "perf" | "name";
 
@@ -85,7 +86,7 @@ export function Filters({
       <div className="flex flex-col justify-center gap-1">
         <label className="flex justify-between text-xs text-muted-foreground">
           <span>{t("filters.maxPrice")}</span>
-          <span className="font-bold text-primary">${state.maxPrice}</span>
+          <span className="font-bold text-primary">{money(state.maxPrice)}</span>
         </label>
         <input
           type="range"

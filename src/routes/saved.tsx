@@ -33,7 +33,7 @@ function SavedPage() {
   return (
     <div className="app-grid mx-auto max-w-7xl px-4 py-10 sm:px-6">
       <div className="mb-8">
-        <p className="eyebrow">Your workspace / 03</p>
+        <p className="eyebrow">{t("saved.eyebrow")}</p>
         <h1 className="mt-2 text-4xl font-black tracking-tight sm:text-5xl">{t("saved.title")}</h1>
         <p className="mt-3 max-w-2xl text-muted-foreground">{t("saved.sub")}</p>
       </div>

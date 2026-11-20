@@ -39,7 +39,7 @@ function AboutPage() {
     <div className="app-grid mx-auto max-w-7xl px-4 py-14 sm:px-6">
       <section className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
         <div>
-          <p className="eyebrow mb-5">Built for better decisions</p>
+          <p className="eyebrow mb-5">{t("about.eyebrow")}</p>
           <div className="mb-5 grid h-14 w-14 place-items-center rounded-xl bg-primary text-primary-foreground shadow-[0_0_28px_-10px_var(--glow)]">
             <Cpu className="h-7 w-7" />
           </div>
@@ -84,11 +84,8 @@ function AboutPage() {
         ))}
       </section>
       <section className="mt-12">
-        <h2 className="text-xl font-black">3D model credits</h2>
-        <p className="mt-1 text-sm text-muted-foreground">
-          These models are licensed under Creative Commons Attribution 4.0 and were rescaled,
-          reoriented and compressed for the web.
-        </p>
+        <h2 className="text-xl font-black">{t("about.creditsTitle")}</h2>
+        <p className="mt-1 text-sm text-muted-foreground">{t("about.creditsDesc")}</p>
         <ul className="mt-4 grid gap-1.5 text-sm sm:grid-cols-2">
           {MODEL_CREDITS.map((m) => (
             <li key={m.id} className="text-muted-foreground">

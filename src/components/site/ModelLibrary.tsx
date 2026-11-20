@@ -1,3 +1,4 @@
+import { useI18n } from "@/lib/i18n";
 import { ExternalLink } from "lucide-react";
 import { useState } from "react";
 
@@ -35,6 +36,7 @@ const ENTRIES: { key: ModelKey; category: Category; group: string }[] = [
 ];
 
 export function ModelLibrary() {
+  const { t } = useI18n();
   const [active, setActive] = useState(ENTRIES[0]!);
   const model = MODELS[active.key];
   const groups = Array.from(new Set(ENTRIES.map((e) => e.group)));
@@ -42,12 +44,9 @@ export function ModelLibrary() {
   return (
     <section className="mt-10">
       <div className="mb-4">
-        <p className="eyebrow">3D library</p>
-        <h2 className="mt-1 text-3xl font-black tracking-tight">Photoreal 3D models</h2>
-        <p className="mt-2 max-w-2xl text-sm text-muted-foreground">
-          Every part in the viewer is a real, textured GLB model scaled to real-world millimetres.
-          Click a model to inspect it.
-        </p>
+        <p className="eyebrow">{t("lib.eyebrow")}</p>
+        <h2 className="mt-1 text-3xl font-black tracking-tight">{t("lib.title")}</h2>
+        <p className="mt-2 max-w-2xl text-sm text-muted-foreground">{t("lib.desc")}</p>
       </div>
       <div className="grid gap-4 lg:grid-cols-[16rem_minmax(0,1fr)]">
         <div className="max-h-[34rem] space-y-4 overflow-y-auto rounded-xl border border-border bg-card p-3">

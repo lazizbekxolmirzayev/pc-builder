@@ -243,6 +243,36 @@ const en: Dict = {
   "cat.mouse": "Mouse",
   "cat.desk": "Desk",
   "cat.chair": "Chair",
+  "hero.title1": "Build the system",
+  "hero.title2": "you actually want.",
+  "hero.live": "Live configuration",
+  "hero.online": "System online",
+  "nav.start": "Start building",
+  "footer.about":
+    "A precise workspace for choosing hardware, checking compatibility and planning your next build.",
+  "footer.workspace": "Workspace",
+  "footer.explore": "Explore",
+  "about.eyebrow": "Built for better decisions",
+  "catalog.buildWith": "Build with these parts",
+  "catalog.eyebrow": "Hardware library",
+  "builder.eyebrow": "Configuration workspace",
+  "saved.eyebrow": "Your workspace",
+  "lib.eyebrow": "3D library",
+  "lib.title": "Photoreal 3D models",
+  "lib.desc":
+    "Every part in the viewer is a real, textured GLB model scaled to real-world millimetres. Click a model to inspect it.",
+  "err.404": "Page not found",
+  "err.404d": "The page you're looking for doesn't exist or has been moved.",
+  "err.home": "Go home",
+  "err.title": "This page didn't load",
+  "err.desc": "Something went wrong on our end. You can try refreshing or head back home.",
+  "err.retry": "Try again",
+  "setup.setup-aorus": "Full AORUS gaming desk — glass tower, RGB fans, monitor and peripherals.",
+  "setup.setup-rgb-tower": "High-end prebuilt with 240 Hz OLED and flagship peripherals.",
+  "footer.startBuild": "Start a build",
+  "about.creditsTitle": "3D model credits",
+  "about.creditsDesc":
+    "These models are licensed under Creative Commons Attribution 4.0 and were rescaled, reoriented and compressed for the web.",
 };
 
 const ru: Dict = {
@@ -483,6 +513,37 @@ const ru: Dict = {
   "cat.mouse": "Мышь",
   "cat.desk": "Стол",
   "cat.chair": "Кресло",
+  "hero.title1": "Соберите систему",
+  "hero.title2": "о которой мечтаете.",
+  "hero.live": "Текущая конфигурация",
+  "hero.online": "Система онлайн",
+  "nav.start": "Начать сборку",
+  "footer.about":
+    "Удобное пространство для выбора комплектующих, проверки совместимости и планирования новой сборки.",
+  "footer.workspace": "Сервисы",
+  "footer.explore": "Разделы",
+  "about.eyebrow": "Для лучших решений",
+  "catalog.buildWith": "Собрать из этих деталей",
+  "catalog.eyebrow": "Каталог комплектующих",
+  "builder.eyebrow": "Рабочее место конфигуратора",
+  "saved.eyebrow": "Ваше пространство",
+  "lib.eyebrow": "3D-библиотека",
+  "lib.title": "Фотореалистичные 3D-модели",
+  "lib.desc":
+    "Каждая деталь в просмотрщике — реальная текстурированная GLB-модель в масштабе реальных миллиметров. Нажмите на модель, чтобы рассмотреть её.",
+  "err.404": "Страница не найдена",
+  "err.404d": "Страница не существует или была перемещена.",
+  "err.home": "На главную",
+  "err.title": "Страница не загрузилась",
+  "err.desc": "Что-то пошло не так. Обновите страницу или вернитесь на главную.",
+  "err.retry": "Повторить",
+  "setup.setup-aorus":
+    "Полное игровое место AORUS — стеклянный корпус, RGB-вентиляторы, монитор и периферия.",
+  "setup.setup-rgb-tower": "Топовая готовая сборка с OLED 240 Гц и флагманской периферией.",
+  "footer.startBuild": "Начать сборку",
+  "about.creditsTitle": "Авторы 3D-моделей",
+  "about.creditsDesc":
+    "Модели распространяются по лицензии Creative Commons Attribution 4.0; они были масштабированы, повёрнуты и сжаты для веба.",
 };
 
 const uz: Dict = {
@@ -724,6 +785,37 @@ const uz: Dict = {
   "cat.mouse": "Sichqoncha",
   "cat.desk": "Stol",
   "cat.chair": "Kreslo",
+  "hero.title1": "Tizimni yig'ing",
+  "hero.title2": "siz xohlagandek.",
+  "hero.live": "Joriy konfiguratsiya",
+  "hero.online": "Tizim onlayn",
+  "nav.start": "Yig'ishni boshlash",
+  "footer.about":
+    "Komplektlarni tanlash, mosligini tekshirish va keyingi yig'ilmangizni rejalash uchun qulay maydon.",
+  "footer.workspace": "Xizmatlar",
+  "footer.explore": "Bo'limlar",
+  "about.eyebrow": "To'g'ri qarorlar uchun",
+  "catalog.buildWith": "Shu qismlardan yig'ish",
+  "catalog.eyebrow": "Komplektlar katalogi",
+  "builder.eyebrow": "Konfigurator maydoni",
+  "saved.eyebrow": "Sizning maydoningiz",
+  "lib.eyebrow": "3D kutubxona",
+  "lib.title": "Fotorealistik 3D modellar",
+  "lib.desc":
+    "Ko'rgichdagi har bir qism haqiqiy millimetr o'lchamidagi teksturali GLB modeldir. Ko'rish uchun modelni bosing.",
+  "err.404": "Sahifa topilmadi",
+  "err.404d": "Siz izlagan sahifa mavjud emas yoki ko'chirilgan.",
+  "err.home": "Bosh sahifaga",
+  "err.title": "Sahifa yuklanmadi",
+  "err.desc": "Xatolik yuz berdi. Sahifani yangilang yoki bosh sahifaga qayting.",
+  "err.retry": "Qayta urinish",
+  "setup.setup-aorus":
+    "To'liq AORUS o'yin stoli — shisha korpus, RGB ventilyatorlar, monitor va periferiya.",
+  "setup.setup-rgb-tower": "240 Hz OLED va flagman periferiyali yuqori darajadagi tayyor yig'ilma.",
+  "footer.startBuild": "Yig'ishni boshlash",
+  "about.creditsTitle": "3D modellar mualliflari",
+  "about.creditsDesc":
+    "Modellar Creative Commons Attribution 4.0 litsenziyasi ostida; ular veb uchun o'lchami, yo'nalishi o'zgartirilgan va siqilgan.",
 };
 
 export const DICTS: Record<Lang, Dict> = { en, ru, uz };

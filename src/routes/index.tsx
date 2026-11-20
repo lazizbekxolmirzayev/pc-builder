@@ -62,8 +62,8 @@ function Index() {
               PC Builder Studio
             </div>
             <h1 className="text-balance max-w-4xl text-5xl font-black leading-[0.93] tracking-[-0.04em] text-foreground sm:text-6xl lg:text-8xl">
-              Build the system
-              <span className="block text-primary">you actually want.</span>
+              {t("hero.title1")}
+              <span className="block text-primary">{t("hero.title2")}</span>
             </h1>
             <p className="mt-7 max-w-xl text-base leading-7 text-muted-foreground sm:text-lg">
               {t("hero.sub")}
@@ -114,7 +114,7 @@ function Index() {
               <div className="absolute right-0 top-0 h-40 w-40 rounded-full bg-primary/10 blur-3xl" />
               <div className="flex items-center justify-between gap-3">
                 <div>
-                  <p className="eyebrow">Live configuration</p>
+                  <p className="eyebrow">{t("hero.live")}</p>
                   <h2 className="mt-1 text-2xl font-black">Apex / 4K Edition</h2>
                 </div>
                 <span className="grid h-12 w-12 place-items-center rounded-xl bg-primary text-primary-foreground shadow-[0_0_30px_-9px_var(--glow)]">
@@ -129,8 +129,8 @@ function Index() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#08111d] via-transparent to-primary/10" />
                 <span className="absolute bottom-3 left-3 flex items-center gap-2 rounded-md border border-primary/30 bg-[#07101b]/80 px-2.5 py-1.5 text-[10px] font-bold uppercase tracking-[0.14em] text-primary backdrop-blur">
-                  <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-primary" /> System
-                  online
+                  <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-primary" />{" "}
+                  {t("hero.online")}
                 </span>
               </div>
               <div className="mt-6 space-y-4">

@@ -9,7 +9,7 @@ export const CONTACTS = {
 
 // Prices in the catalogue are stored in USD. Set CURRENCY to "UZS" to show so'm instead,
 // and keep USD_TO_UZS in sync with the rate you use.
-export const CURRENCY: "USD" | "UZS" = "USD";
+export const CURRENCY: "USD" | "UZS" = "UZS";
 export const USD_TO_UZS = 12500;
 
 export type PaymentMethod = "cash" | "card";
