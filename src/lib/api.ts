@@ -14,7 +14,7 @@ export type { Visitor };
 const USER_KEY = "pcb.user";
 
 /** Admin kalit: faqat sahifani ochish uchun (ro'yxatning o'zi mockapi'da ochiq turadi). */
-const ADMIN_KEY = String(import.meta.env["VITE_ADMIN_KEY"] ?? "") || "pcbuilder-admin";
+const ADMIN_KEY = String(import.meta.env["VITE_ADMIN_KEY"] ?? "") || "1234";
 
 const nameOf = (u: Pick<User, "firstName" | "lastName">) => `${u.firstName} ${u.lastName}`;
 

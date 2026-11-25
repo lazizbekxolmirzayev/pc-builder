@@ -40,9 +40,6 @@ function AdminPage() {
   return (
     <div className="app-grid mx-auto max-w-4xl px-4 py-10 sm:px-6">
       <h1 className="text-3xl font-black tracking-tight">Ro'yxat</h1>
-      <p className="mt-1 text-sm text-muted-foreground">
-        PC Builder va WHAT IF uchun umumiy ro'yxat (bitta mockapi manzili).
-      </p>
       {!remoteVisitors && (
         <p className="mt-2 text-sm text-amber-500">
           Umumiy ro'yxat ulanmagan (VITE_VISITORS_API yo'q): faqat shu brauzerdagi yozuvlar
