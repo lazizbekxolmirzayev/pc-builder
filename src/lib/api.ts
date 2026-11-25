@@ -1,26 +1,22 @@
 /**
- * Mock API klienti. Server tomoni: src/routes/api.*.tsx + src/server/users-store.ts
- * (xotirada saqlanadigan mock baza). Server javob bermasa, ilova localStorage bilan
- * ishlashda davom etadi.
+ * Foydalanuvchi sessiyasi (shu brauzerda) va umumiy ro'yxat bilan aloqa.
+ * Ro'yxat PC Builder va WHAT IF saytlari uchun bitta mockapi.io manzilida turadi (qarang: visitors.ts).
  *
- *   registerUser -> POST /api/register
- *   touchVisit   -> POST /api/visit     (qayta kirganda "oxirgi kirish" vaqtini yangilaydi)
- *   fetchUsers   -> GET  /api/users     (admin kalit bilan, /admin sahifasi uchun)
+ *   registerUser -> foydalanuvchini shu brauzerda saqlaydi va ro'yxatga yozadi
+ *   getMe        -> qayta kirganda har sessiyada bir marta ro'yxatga yozadi
+ *   fetchUsers   -> /admin sahifasi uchun umumiy ro'yxatni o'qiydi (admin kalit bilan)
  */
+import { listVisitors, logSessionVisit, retryPending, type Visitor } from "@/lib/visitors";
+
 export type User = { id: string; firstName: string; lastName: string; registeredAt: string };
-export type AdminUser = User & { lastLoginAt: string; visits: number };
+export type { Visitor };
 
 const USER_KEY = "pcb.user";
 
-async function post(url: string, body: unknown) {
-  const res = await fetch(url, {
-    method: "POST",
-    headers: { "content-type": "application/json" },
-    body: JSON.stringify(body),
-  });
-  if (!res.ok) throw new Error(`HTTP ${res.status}`);
-  return res.json();
-}
+/** Admin kalit: faqat sahifani ochish uchun (ro'yxatning o'zi mockapi'da ochiq turadi). */
+const ADMIN_KEY = String(import.meta.env["VITE_ADMIN_KEY"] ?? "") || "pcbuilder-admin";
+
+const nameOf = (u: Pick<User, "firstName" | "lastName">) => `${u.firstName} ${u.lastName}`;
 
 export async function getMe(): Promise<User | null> {
   try {
@@ -28,8 +24,9 @@ export async function getMe(): Promise<User | null> {
     if (!raw) return null;
     const u = JSON.parse(raw) as User;
     if (!u?.firstName || !u?.lastName) return null;
-    // Kirish vaqtini serverga yozamiz (server xotirasi tozalangan bo'lsa ham foydalanuvchi qayta tiklanadi).
-    post("/api/visit", u).catch(() => {});
+    // Yetib bormagan oldingi yozuvni qayta yuboramiz, so'ng shu sessiyadagi kirishni yozamiz.
+    void retryPending();
+    logSessionVisit(nameOf(u));
     return u;
   } catch {
     return null;
@@ -37,19 +34,14 @@ export async function getMe(): Promise<User | null> {
 }
 
 export async function registerUser(input: { firstName: string; lastName: string }): Promise<User> {
-  const draft: User = {
+  const user: User = {
     id: crypto.randomUUID(),
     firstName: input.firstName.trim(),
     lastName: input.lastName.trim(),
     registeredAt: new Date().toISOString(),
   };
-  let user = draft;
-  try {
-    user = { ...draft, ...(await post("/api/register", draft)) };
-  } catch {
-    // server yo'q: lokal rejimda davom etamiz
-  }
-  localStorage.setItem(USER_KEY, JSON.stringify({ id: user.id, firstName: user.firstName, lastName: user.lastName, registeredAt: user.registeredAt }));
+  localStorage.setItem(USER_KEY, JSON.stringify(user));
+  logSessionVisit(nameOf(user));
   return user;
 }
 
@@ -57,9 +49,7 @@ export async function logoutUser(): Promise<void> {
   localStorage.removeItem(USER_KEY);
 }
 
-export async function fetchUsers(adminKey: string): Promise<AdminUser[]> {
-  const res = await fetch("/api/users", { headers: { "x-admin-key": adminKey } });
-  if (res.status === 401) throw new Error("Kalit noto'g'ri");
-  if (!res.ok) throw new Error(`Server xatosi (${res.status})`);
-  return res.json();
+export async function fetchUsers(adminKey: string): Promise<Visitor[]> {
+  if (adminKey !== ADMIN_KEY) throw new Error("Kalit noto'g'ri");
+  return listVisitors();
 }

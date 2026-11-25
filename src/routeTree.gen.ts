@@ -19,9 +19,6 @@ import { Route as ComponentsRouteImport } from './routes/components'
 import { Route as OrdersRouteImport } from './routes/orders'
 import { Route as SavedRouteImport } from './routes/saved'
 import { Route as View3dRouteImport } from './routes/view3d'
-import { Route as ApiRegisterRouteImport } from './routes/api.register'
-import { Route as ApiUsersRouteImport } from './routes/api.users'
-import { Route as ApiVisitRouteImport } from './routes/api.visit'
 import { Route as ComponentsIndexRouteImport } from './routes/components.index'
 import { Route as ComponentsIdRouteImport } from './routes/components.$id'
 
@@ -75,21 +72,6 @@ const View3dRoute = View3dRouteImport.update({
   path: '/view3d',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ApiRegisterRoute = ApiRegisterRouteImport.update({
-  id: '/api/register',
-  path: '/api/register',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ApiUsersRoute = ApiUsersRouteImport.update({
-  id: '/api/users',
-  path: '/api/users',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ApiVisitRoute = ApiVisitRouteImport.update({
-  id: '/api/visit',
-  path: '/api/visit',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const ComponentsIndexRoute = ComponentsIndexRouteImport.update({
   id: '/',
   path: '/',
@@ -112,9 +94,6 @@ export interface FileRoutesByFullPath {
   '/orders': typeof OrdersRoute
   '/saved': typeof SavedRoute
   '/view3d': typeof View3dRoute
-  '/api/register': typeof ApiRegisterRoute
-  '/api/users': typeof ApiUsersRoute
-  '/api/visit': typeof ApiVisitRoute
   '/components/$id': typeof ComponentsIdRoute
   '/components/': typeof ComponentsIndexRoute
 }
@@ -128,9 +107,6 @@ export interface FileRoutesByTo {
   '/orders': typeof OrdersRoute
   '/saved': typeof SavedRoute
   '/view3d': typeof View3dRoute
-  '/api/register': typeof ApiRegisterRoute
-  '/api/users': typeof ApiUsersRoute
-  '/api/visit': typeof ApiVisitRoute
   '/components/$id': typeof ComponentsIdRoute
   '/components': typeof ComponentsIndexRoute
 }
@@ -146,9 +122,6 @@ export interface FileRoutesById {
   '/orders': typeof OrdersRoute
   '/saved': typeof SavedRoute
   '/view3d': typeof View3dRoute
-  '/api/register': typeof ApiRegisterRoute
-  '/api/users': typeof ApiUsersRoute
-  '/api/visit': typeof ApiVisitRoute
   '/components/$id': typeof ComponentsIdRoute
   '/components/': typeof ComponentsIndexRoute
 }
@@ -165,9 +138,6 @@ export interface FileRouteTypes {
     | '/orders'
     | '/saved'
     | '/view3d'
-    | '/api/register'
-    | '/api/users'
-    | '/api/visit'
     | '/components/$id'
     | '/components/'
   fileRoutesByTo: FileRoutesByTo
@@ -181,9 +151,6 @@ export interface FileRouteTypes {
     | '/orders'
     | '/saved'
     | '/view3d'
-    | '/api/register'
-    | '/api/users'
-    | '/api/visit'
     | '/components/$id'
     | '/components'
   id:
@@ -198,9 +165,6 @@ export interface FileRouteTypes {
     | '/orders'
     | '/saved'
     | '/view3d'
-    | '/api/register'
-    | '/api/users'
-    | '/api/visit'
     | '/components/$id'
     | '/components/'
   fileRoutesById: FileRoutesById
@@ -216,9 +180,6 @@ export interface RootRouteChildren {
   OrdersRoute: typeof OrdersRoute
   SavedRoute: typeof SavedRoute
   View3dRoute: typeof View3dRoute
-  ApiRegisterRoute: typeof ApiRegisterRoute
-  ApiUsersRoute: typeof ApiUsersRoute
-  ApiVisitRoute: typeof ApiVisitRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -293,27 +254,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof View3dRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/api/register': {
-      id: '/api/register'
-      path: '/api/register'
-      fullPath: '/api/register'
-      preLoaderRoute: typeof ApiRegisterRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/api/users': {
-      id: '/api/users'
-      path: '/api/users'
-      fullPath: '/api/users'
-      preLoaderRoute: typeof ApiUsersRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/api/visit': {
-      id: '/api/visit'
-      path: '/api/visit'
-      fullPath: '/api/visit'
-      preLoaderRoute: typeof ApiVisitRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/components/': {
       id: '/components/'
       path: '/'
@@ -356,9 +296,6 @@ const rootRouteChildren: RootRouteChildren = {
   OrdersRoute: OrdersRoute,
   SavedRoute: SavedRoute,
   View3dRoute: View3dRoute,
-  ApiRegisterRoute: ApiRegisterRoute,
-  ApiUsersRoute: ApiUsersRoute,
-  ApiVisitRoute: ApiVisitRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
