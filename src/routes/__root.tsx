@@ -13,11 +13,13 @@ import { useEffect, type ReactNode } from "react";
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { Footer } from "@/components/site/Footer";
+import { RegisterGate } from "@/components/site/RegisterGate";
 import { Navbar } from "@/components/site/Navbar";
 import { BuildProvider } from "@/lib/build";
 import { CartProvider } from "@/lib/cart";
 import { I18nProvider, useI18n } from "@/lib/i18n";
 import { ThemeProvider } from "@/lib/theme";
+import { UserProvider } from "@/lib/user";
 
 function NotFoundComponent() {
   const { t } = useI18n();
@@ -105,9 +107,11 @@ function RootShell({ children }: { children: ReactNode }) {
       <body>
         <I18nProvider>
           <ThemeProvider>
-            <BuildProvider>
-              <CartProvider>{children}</CartProvider>
-            </BuildProvider>
+            <UserProvider>
+              <BuildProvider>
+                <CartProvider>{children}</CartProvider>
+              </BuildProvider>
+            </UserProvider>
           </ThemeProvider>
         </I18nProvider>
         <Scripts />
@@ -122,6 +126,7 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <div className="min-h-screen bg-background text-foreground">
+        <RegisterGate />
         <Navbar />
         <main>
           {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
